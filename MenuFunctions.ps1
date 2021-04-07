@@ -1,4 +1,53 @@
-﻿function Show-InputBoxButtonClick
+﻿
+function Show-QuickMenu 
+{
+    #####   MENU TESTING #####
+    Clear-Host
+    $MenuTitle = 'Welcome to the Quick Menu'
+    $MenuList = (@"
+    --------------------------------------------------
+
+           {0}
+
+        0 = Exit
+        1 = Option One
+        2 = Option Two
+
+    --------------------------------------------------
+    "@  -f $MenuTitle )
+    Write-Host $MenuList -ForegroundColor Green
+    $answer = Read-Host -Prompt 'Please Make a Selection'  
+    #Quick Menu. 
+    while ($choice -ne 0)
+    {
+      #Display the menu options function
+      $choice = Read-Host -Prompt "`nSelection"
+      switch ($choice)
+      {
+        0 
+        {
+          break
+        } #Return to main menu
+        1 
+        {
+          Get-Service
+        }
+        2 
+        {
+          Get-Printer
+        }
+        default 
+        {
+          Write-Host "`nPlease choose a selection." -foregroundcolor red
+        }
+      }
+    }
+}
+
+**********************************************************************
+**********************************************************************
+
+function Show-InputBoxButtonClick
 {
 
   <# Example to show the InputBox on button click and display entered text #>
@@ -48,6 +97,9 @@
   
   $Form.ShowDialog()
 }
+
+**********************************************************************
+**********************************************************************
 
 function Show-GuiMenu
 {
@@ -117,6 +169,10 @@ function Show-GuiMenu
 }
 
 #Show-GuiMenu -computerNames test1, test2
+
+
+**********************************************************************
+**********************************************************************
 
 Function Show-DynamicMenu
 {
@@ -209,6 +265,10 @@ Function Show-DynamicMenu
   Return $selection
 }
 
+
+
+**********************************************************************
+**********************************************************************
 
 function Show-AsciiMenu
 {
@@ -381,6 +441,10 @@ function Show-AsciiMenu
 #Show-AsciiMenu -Title 'THIS IS THE TITLE' -MenuItems 'Exchange Server', 'Active Directory', 'Sytem Center Configuration Manager', 'Lync Server' -TitleColor Red  -MenuItemColor green
 #Show-AsciiMenu -Title 'THIS IS THE TITLE' -MenuItems 'Exchange Server', 'Active Directory', 'Sytem Center Configuration Manager' #-Debug
 
+
+**********************************************************************
+**********************************************************************
+
 function Show-OneClickGuiMenu 
 {
   [void][reflection.assembly]::Load('System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089')
@@ -419,6 +483,10 @@ function Show-OneClickGuiMenu
   Write-Output -InputObject $var
 }
 #Show-OneClickGuiMenu
+
+
+**********************************************************************
+**********************************************************************
 
 function Show-ChoiceGuiMenu 
 {
