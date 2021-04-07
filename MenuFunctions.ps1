@@ -1,4 +1,6 @@
 ﻿
+###  Becareful when modifying this script.
+
 function Show-QuickMenu 
 {
   #####   MENU TESTING #####
