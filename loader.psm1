@@ -8,9 +8,9 @@
 
 # LOADING ALL FUNCTION DEFINITIONS:
 
-. $PSScriptRoot\Show-AsciiMenu.psm1
-. $PSScriptRoot\Show-DynamicMenu.psm1
-. $PSScriptRoot\Show-GuiMenu.psm1
-. $PSScriptRoot\Show-InputBoxButtonClick.psm1
-. $PSScriptRoot\Show-OneClickGuiMenu.psm1
-
+#. $PSScriptRoot\Show-AsciiMenu.psm1
+#. $PSScriptRoot\Show-DynamicMenu.psm1
+#. $PSScriptRoot\Show-GuiMenu.psm1
+#. $PSScriptRoot\Show-InputBoxButtonClick.psm1
+#. $PSScriptRoot\Show-OneClickGuiMenu.psm1
+. $PSScriptRoot\MenuFunctions.psm1
