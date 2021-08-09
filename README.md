@@ -1,6 +1,10 @@
 # ITPS-Menus
 This is being modernized and migrated into https://github.com/KnarrStudio/ITPS.OMCS.CodingFunctions.
 
+### To access them:
+Load the module and run:  _**Show-MenuFunctions**_ 
+
+### Menus Inventory
 The same functions will still be available:
 - Show-QuickMenu 
 - Show-MainMenu 
