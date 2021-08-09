@@ -4,7 +4,8 @@
 function Show-QuickMenu 
 {
   #####   MENU TESTING #####
-  Clear-Host
+  
+  $choice = ''
   $MenuTitle = 'Welcome to the Quick Menu'
   $MenuList = (@"
 --------------------------------------------------
@@ -22,6 +23,9 @@ function Show-QuickMenu
   #Quick Menu. 
   while ($choice -ne 0)
   {
+    Clear-Host
+    Write-Host -Object $MenuList -ForegroundColor Green
+    #$choice = Read-Host -Prompt 'Please Make a Selection' 
     #Display the menu options function
     $choice = Read-Host -Prompt "`nSelection"
     switch ($choice)
