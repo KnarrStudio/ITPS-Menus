@@ -12,16 +12,17 @@ function Show-QuickMenu
   {0}
 
 0 = Exit
-1 = Option One
-2 = Option Two
+1 = Option One "Get-Service"
+2 = Option Two "Get-Printer"
 
 --------------------------------------------------
 "@  -f $MenuTitle )
-  Write-Host $MenuList -ForegroundColor Green
-  $answer = Read-Host -Prompt 'Please Make a Selection'  
+ 
   #Quick Menu. 
   while ($choice -ne 0)
   {
+    Write-Host -Object $MenuList -ForegroundColor Green
+    #$choice = Read-Host -Prompt 'Please Make a Selection' 
     #Display the menu options function
     $choice = Read-Host -Prompt "`nSelection"
     switch ($choice)
@@ -40,7 +41,7 @@ function Show-QuickMenu
       }
       default 
       {
-        Write-Host "`nPlease choose a selection." -foregroundcolor red
+        Write-Host -Object "`nPlease choose a selection." -ForegroundColor red
       }
     }
   }
@@ -103,7 +104,7 @@ function Show-InputBoxButtonClick
   $Button_Click = 
   { 
     $EnteredText = 
-    [Microsoft.VisualBasic.Interaction]::InputBox('Prompt', 'Title', 'Default value',  $Form.Left + 50, $Form.Top + 50) 
+    [Microsoft.VisualBasic.Interaction]::Load::InputBox('Prompt', 'Title', 'Default value',  $Form.Left + 50, $Form.Top + 50) 
     <# If the InputBox Cancel button is clicked the InputBox returns an empty string so don't change the TextBox value #>
     if($EnteredText.Length -gt 0) 
     {
@@ -255,7 +256,7 @@ Function Show-DynamicMenu
     [int]$ans = Read-Host -Prompt 'Select number'
     if($ans -ge $ItemCount )
     {
-      Write-Host ('Select {0} or below' -f $ItemCount)
+      Write-Host -Object ('Select {0} or below' -f $ItemCount)
     }
     $Selection = $menu.Item($ans)
     Write-Host 'You selected:'$Selection -ForegroundColor Magenta
@@ -330,15 +331,15 @@ function Show-AsciiMenu
       Switch ($DrawLine) {
         Top 
         {
-          Write-Host ('╔{0}╗' -f $HorizontalLine) -ForegroundColor $LineColor
+          Write-Host -Object ('╔{0}╗' -f $HorizontalLine) -ForegroundColor $LineColor
         }
         Middle 
         {
-          Write-Host ('╠{0}╣' -f $HorizontalLine) -ForegroundColor $LineColor
+          Write-Host -Object ('╠{0}╣' -f $HorizontalLine) -ForegroundColor $LineColor
         }
         Bottom 
         {
-          Write-Host ('╚{0}╝' -f $HorizontalLine) -ForegroundColor $LineColor
+          Write-Host -Object ('╚{0}╝' -f $HorizontalLine) -ForegroundColor $LineColor
         }
       }
     }
@@ -353,13 +354,13 @@ function Show-AsciiMenu
     }
     function Write-MenuTitle
     {
-      Write-Host ('{0}{1}' -f $VertLine, $TextPadding) -NoNewline -ForegroundColor $LineColor
-      Write-Host ($title) -NoNewline -ForegroundColor $TitleColor
+      Write-Host -Object ('{0}{1}' -f $VertLine, $TextPadding) -NoNewline -ForegroundColor $LineColor
+      Write-Host -Object ($title) -NoNewline -ForegroundColor $TitleColor
       if($TotalTitlePadding % 2 -eq 1)
       {
         $TextPadding = Get-Padding -Multiplier ($TitlePaddingCount + 1)
       }
-      Write-Host ('{0}{1}' -f $TextPadding, $VertLine) -ForegroundColor $LineColor
+      Write-Host -Object ('{0}{1}' -f $TextPadding, $VertLine) -ForegroundColor $LineColor
     }
     function Write-MenuItems
     {
@@ -368,9 +369,9 @@ function Show-AsciiMenu
         $number = $i++
         $ItemPaddingCount = $TotalLineWidth - $menuItem.Length - 6 #This number is needed to offset the Tab, space and 'dot'
         $ItemPadding = Get-Padding -Multiplier $ItemPaddingCount
-        Write-Host $VertLine  -NoNewline -ForegroundColor $LineColor
-        Write-Host ('{0}{1}. {2}{3}' -f $Tab, $number, $menuItem, $ItemPadding) -NoNewline -ForegroundColor $LineColor
-        Write-Host $VertLine -ForegroundColor $LineColor
+        Write-Host -Object $VertLine  -NoNewline -ForegroundColor $LineColor
+        Write-Host -Object ('{0}{1}. {2}{3}' -f $Tab, $number, $menuItem, $ItemPadding) -NoNewline -ForegroundColor $LineColor
+        Write-Host -Object $VertLine -ForegroundColor $LineColor
       }
     }
   }
@@ -471,3 +472,4 @@ function Show-ChoiceGuiMenu
   $result = $host.ui.PromptForChoice($title, $message, $options, 0)
   Write-Output -InputObject $result
 }
+
