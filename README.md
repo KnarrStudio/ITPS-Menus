@@ -17,11 +17,11 @@ Or find the raw code here: https://gist.github.com/OgJAkFy8/6e8a07fad58b852994ae
 
 ### Menus Inventory
 The same functions will still be available:
-- Show-QuickMenu 
-- Show-MainMenu 
-- Show-InputBoxButtonClick 
-- Show-GuiMenu 
-- Show-DynamicMenu 
-- Show-AsciiMenu 
-- Show-OneClickGuiMenu  
-- Show-ChoiceGuiMenu  
+1)  Show-QuickMenu 
+1)  Show-MainMenu 
+1)  Show-InputBoxButtonClick 
+1)  Show-GuiMenu 
+1)  Show-DynamicMenu 
+1)  Show-AsciiMenu 
+1)  Show-OneClickGuiMenu  
+1)  Show-ChoiceGuiMenu  
